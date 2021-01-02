@@ -32,10 +32,8 @@ class Operations extends Component {
     }
 
     withdrow = () => {
-        const record = {}
+        const record = {...this.state}
         record.amount = this.state.amount * (-1)
-        record.category = this.state.category
-        record.vendor = this.state.vendor
         axios.post(`http://localhost:3001/transaction`, record)
         .then(res => {
           this.props.loadTransactions()
